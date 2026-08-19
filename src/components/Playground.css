@@ -1,0 +1,237 @@
+.pg {
+  overflow: hidden;
+  box-shadow: 0 30px 80px -40px rgba(0, 0, 0, 0.8);
+}
+
+/* top window bar */
+.pg-bar {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.7rem 0.9rem;
+  background: var(--ink-3);
+  border-bottom: 1px solid var(--line);
+}
+.pg-dots {
+  display: flex;
+  gap: 6px;
+}
+.pg-dots i {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  display: block;
+}
+.pg-name {
+  font-size: var(--step--1);
+  color: var(--fg-dim);
+}
+.pg-actions {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.pg-auto {
+  font-size: var(--step--1);
+  color: var(--fg-dim);
+  display: flex;
+  align-items: center;
+  gap: 0.45ch;
+  cursor: pointer;
+  user-select: none;
+}
+.pg-auto input {
+  accent-color: var(--run-dim);
+}
+
+/* split body */
+.pg-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 440px;
+}
+@media (max-width: 820px) {
+  .pg-body {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* editor */
+.pg-editor {
+  border-right: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+@media (max-width: 820px) {
+  .pg-editor {
+    border-right: none;
+    border-bottom: 1px solid var(--line);
+  }
+}
+.pg-tabs {
+  display: flex;
+  background: var(--ink-2);
+  border-bottom: 1px solid var(--line);
+  overflow-x: auto;
+}
+.pg-tab {
+  font-family: var(--mono);
+  font-size: var(--step--1);
+  color: var(--fg-dim);
+  background: transparent;
+  border: none;
+  border-right: 1px solid var(--line);
+  padding: 0.6rem 0.95rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.6ch;
+  white-space: nowrap;
+  transition: color 0.15s, background 0.15s;
+}
+.pg-tab:hover {
+  color: var(--fg);
+}
+.pg-tab.on {
+  color: var(--fg);
+  background: var(--ink);
+  box-shadow: inset 0 -2px 0 var(--run-dim);
+}
+.tab-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 2px;
+}
+
+.pg-code {
+  position: relative;
+  display: flex;
+  flex: 1;
+  background: var(--ink);
+  min-height: 0;
+}
+.pg-gutter {
+  padding: 1rem 0.5rem 1rem 0.85rem;
+  text-align: right;
+  color: #3a4256;
+  font-family: var(--mono);
+  font-size: 0.82rem;
+  line-height: 1.6;
+  user-select: none;
+  background: var(--ink);
+  border-right: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.pg-textarea {
+  flex: 1;
+  resize: none;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: var(--fg);
+  padding: 1rem 1rem 1rem 0.9rem;
+  font-size: 0.82rem;
+  line-height: 1.6;
+  tab-size: 2;
+  white-space: pre;
+  overflow: auto;
+}
+.pg-textarea::selection {
+  background: rgba(74, 246, 38, 0.22);
+}
+
+/* preview */
+.pg-preview {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.pg-preview-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.6ch;
+  padding: 0.6rem 0.95rem;
+  font-size: var(--step--1);
+  color: var(--fg-dim);
+  background: var(--ink-2);
+  border-bottom: 1px solid var(--line);
+}
+.pg-frame {
+  flex: 1;
+  width: 100%;
+  border: none;
+  background: #fff;
+  min-height: 220px;
+}
+.pg-console {
+  border-top: 1px solid var(--line);
+  background: var(--ink);
+  height: 130px;
+  display: flex;
+  flex-direction: column;
+}
+.pg-console-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.4rem 0.9rem;
+  font-size: var(--step--1);
+  color: var(--fg-dim);
+  border-bottom: 1px solid var(--line);
+}
+.pg-clear {
+  background: none;
+  border: none;
+  color: var(--fg-dim);
+  cursor: pointer;
+  font-family: var(--mono);
+  font-size: var(--step--1);
+}
+.pg-clear:hover {
+  color: var(--run);
+}
+.pg-console-body {
+  flex: 1;
+  overflow: auto;
+  padding: 0.5rem 0.9rem;
+  font-size: 0.78rem;
+  line-height: 1.7;
+}
+.pg-console-empty {
+  color: #3a4256;
+}
+.pg-line {
+  white-space: pre-wrap;
+  word-break: break-word;
+  border-bottom: 1px solid rgba(35, 42, 59, 0.5);
+  padding: 1px 0;
+}
+.lv-error {
+  color: var(--rose);
+}
+.lv-warn {
+  color: var(--amber);
+}
+.lv-info,
+.lv-log {
+  color: var(--fg-dim);
+}
+
+/* share strip */
+.pg-share {
+  padding: 0.6rem 0.95rem;
+  font-family: var(--mono);
+  font-size: var(--step--1);
+  border-top: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  gap: 0.5ch;
+  background: var(--ink-3);
+}
+.pg-share.lv-error {
+  color: var(--rose);
+}

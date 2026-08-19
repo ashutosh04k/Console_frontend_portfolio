@@ -1,0 +1,120 @@
+.proj-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+}
+
+.proj-item {
+  display: grid;
+  grid-template-columns: 170px 1fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+@media (max-width: 760px) {
+  .proj-item {
+    grid-template-columns: 1fr;
+    gap: 0.6rem;
+  }
+}
+
+.proj-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding-top: 1.4rem;
+}
+@media (max-width: 760px) {
+  .proj-meta {
+    flex-direction: row;
+    align-items: baseline;
+    gap: 1ch;
+    padding-top: 0;
+  }
+}
+.proj-idx {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--run-dim);
+  line-height: 1;
+}
+.proj-metric {
+  font-size: var(--step--1);
+  color: var(--run);
+}
+
+.proj-card {
+  padding: 1.5rem 1.6rem;
+}
+.proj-card:hover {
+  border-color: var(--run-dim);
+}
+
+.proj-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.1rem;
+}
+.proj-name {
+  font-size: var(--step-1);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+.proj-links {
+  display: flex;
+  gap: 1.2rem;
+  font-size: var(--step--1);
+}
+
+.proj-blurb {
+  color: var(--fg-dim);
+  font-size: var(--step-0);
+  line-height: 1.55;
+  margin-bottom: 1.1rem;
+}
+
+.proj-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+.chip {
+  font-size: 0.72rem;
+  color: var(--violet);
+  padding: 0.2rem 0.55rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--ink-3);
+}
+
+.proj-count {
+  font-size: 0.68rem;
+  color: var(--run-dim);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.1rem 0.5rem;
+  align-self: flex-start;
+  white-space: nowrap;
+}
+@media (max-width: 760px) {
+  .proj-count { align-self: auto; }
+}
+
+.proj-toggle {
+  margin-top: 0.9rem;
+  font-family: var(--mono);
+  font-size: var(--step--1);
+  color: var(--run);
+  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: 0.4rem 0.85rem;
+  cursor: pointer;
+  transition: border-color 0.18s var(--ease), background 0.18s var(--ease);
+}
+.proj-toggle:hover {
+  border-color: var(--run-dim);
+  background: rgba(74, 246, 38, 0.06);
+}

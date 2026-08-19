@@ -1,0 +1,136 @@
+.hero {
+  position: relative;
+  min-height: 92vh;
+  display: flex;
+  align-items: center;
+  padding-block: 4rem 4rem;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 0.85fr;
+  gap: clamp(2rem, 5vw, 4.5rem);
+  align-items: center;
+}
+@media (max-width: 880px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.hero-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6ch;
+  font-size: var(--step--1);
+  color: var(--fg-dim);
+  padding: 0.4rem 0.75rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--ink-2);
+  margin-bottom: 1.6rem;
+}
+
+/* name as code */
+.hero-name {
+  font-weight: 800;
+  font-size: var(--step-3);
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+  margin-bottom: 0.7rem;
+}
+.hn-kw {
+  color: var(--violet);
+}
+.hn-var {
+  color: var(--amber);
+}
+.hn-op {
+  color: var(--fg-dim);
+}
+.hn-str {
+  color: var(--fg);
+}
+.hn-dim {
+  color: var(--fg-dim);
+}
+.hn-run {
+  color: var(--run);
+}
+
+.hero-line {
+  font-size: var(--step-1);
+  margin-bottom: 1.6rem;
+  min-height: 1.6em;
+}
+
+.hero-blurb {
+  max-width: 46ch;
+  color: var(--fg-dim);
+  font-size: var(--step-0);
+  margin-bottom: 2rem;
+}
+
+.hero-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+}
+
+/* spec sheet */
+.hero-spec {
+  padding: 1.4rem 1.5rem;
+  font-size: var(--step--1);
+}
+.spec-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.3rem 0;
+}
+.spec-k {
+  color: var(--fg-dim);
+}
+.spec-k::before {
+  content: "";
+}
+.spec-v {
+  color: var(--fg);
+  text-align: right;
+}
+.spec-sep {
+  height: 1px;
+  background: var(--line);
+  margin: 0.9rem 0;
+}
+.spec-stat {
+  display: flex;
+  align-items: baseline;
+  gap: 0.7ch;
+  padding: 0.35rem 0;
+}
+.spec-stat b {
+  color: var(--run);
+  font-size: 1.05rem;
+  font-weight: 700;
+  min-width: 4.5ch;
+}
+.spec-stat span {
+  color: var(--fg-dim);
+  font-size: 0.8rem;
+}
+
+.hero-scroll {
+  position: absolute;
+  left: 50%;
+  bottom: 1.6rem;
+  translate: -50% 0;
+  font-size: var(--step--1);
+  color: var(--fg-dim);
+  animation: bob 2.4s var(--ease) infinite;
+}
+@keyframes bob {
+  50% {
+    transform: translateY(6px);
+  }
+}

@@ -1,0 +1,184 @@
+.sg {
+  border: 1px solid #232a3b;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #10141d;
+  font-family: ui-monospace, "JetBrains Mono", Menlo, monospace;
+}
+
+/* header */
+.sg-head {
+  display: flex;
+  align-items: center;
+  gap: 0.6ch;
+  padding: 0.6rem 0.9rem;
+  font-size: 0.78rem;
+  color: #8b93a7;
+  background: #171c28;
+  border-bottom: 1px solid #232a3b;
+}
+.sg-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #4af626;
+}
+.sg-count { color: #465066; }
+
+/* scroll strip */
+.sg-viewport { position: relative; }
+.sg-strip {
+  display: flex;
+  gap: 0.6rem;
+  padding: 0.6rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: thin;
+  scrollbar-color: #232a3b transparent;
+  -webkit-overflow-scrolling: touch;
+}
+.sg-strip::-webkit-scrollbar { height: 8px; }
+.sg-strip::-webkit-scrollbar-track { background: transparent; }
+.sg-strip::-webkit-scrollbar-thumb { background: #232a3b; border-radius: 999px; }
+.sg-strip::-webkit-scrollbar-thumb:hover { background: #2fa617; }
+.sg-strip.single { overflow-x: visible; }
+
+/* thumbnails */
+.sg-shot {
+  position: relative;
+  flex: 0 0 auto;
+  width: 300px;
+  scroll-snap-align: start;
+  margin: 0;
+  border: 1px solid #232a3b;
+  border-radius: 6px;
+  overflow: hidden;
+  background: #0b0e14;
+  cursor: zoom-in;
+  transition: border-color 0.18s, transform 0.18s;
+}
+.sg-strip.single .sg-shot { width: 100%; }
+.sg-shot:hover { border-color: #2fa617; transform: translateY(-2px); }
+.sg-shot img {
+  width: 100%;
+  display: block;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  object-position: top;
+}
+.sg-strip.single .sg-shot img {
+  aspect-ratio: auto;
+  max-height: 460px;
+  object-fit: contain;
+}
+.sg-shot figcaption {
+  padding: 0.45rem 0.7rem;
+  font-size: 0.68rem;
+  color: #8b93a7;
+  border-top: 1px solid #232a3b;
+}
+.sg-zoom {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  font-size: 0.64rem;
+  color: #e4e7ef;
+  background: rgba(11, 14, 20, 0.8);
+  border: 1px solid #232a3b;
+  border-radius: 999px;
+  padding: 0.15rem 0.55rem;
+  opacity: 0;
+  transition: opacity 0.18s;
+}
+.sg-shot:hover .sg-zoom { opacity: 1; }
+
+/* nudge arrows */
+.sg-arrow {
+  position: absolute;
+  top: calc(50% - 6px);
+  transform: translateY(-50%);
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: rgba(16, 20, 29, 0.92);
+  border: 1px solid #232a3b;
+  color: #e4e7ef;
+  font-size: 19px;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  z-index: 3;
+  backdrop-filter: blur(4px);
+  transition: border-color 0.18s, color 0.18s;
+}
+.sg-arrow:hover { border-color: #4af626; color: #4af626; }
+.sg-arrow.left { left: 0.4rem; }
+.sg-arrow.right { right: 0.4rem; }
+@media (max-width: 560px) {
+  .sg-arrow { display: none; }
+  .sg-shot { width: 82%; }
+}
+
+/* lightbox */
+.sg-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  background: rgba(6, 8, 12, 0.92);
+  display: grid;
+  place-items: center;
+  padding: clamp(1rem, 5vw, 4rem);
+  cursor: zoom-out;
+  backdrop-filter: blur(4px);
+}
+.sg-lb-fig {
+  margin: 0;
+  max-width: min(1100px, 92vw);
+  max-height: 88vh;
+  display: flex;
+  flex-direction: column;
+  cursor: default;
+}
+.sg-lb-fig img {
+  max-width: 100%;
+  max-height: 82vh;
+  object-fit: contain;
+  border: 1px solid #232a3b;
+  border-radius: 10px;
+}
+.sg-lb-fig figcaption {
+  margin-top: 0.6rem;
+  text-align: center;
+  font-size: 0.78rem;
+  color: #8b93a7;
+}
+.sg-lb-close {
+  position: absolute;
+  top: 1rem;
+  right: 1.2rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #10141d;
+  border: 1px solid #232a3b;
+  color: #e4e7ef;
+  font-size: 22px;
+  cursor: pointer;
+}
+.sg-lb-close:hover { border-color: #4af626; color: #4af626; }
+.sg-lb-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #10141d;
+  border: 1px solid #232a3b;
+  color: #e4e7ef;
+  font-size: 26px;
+  cursor: pointer;
+}
+.sg-lb-nav:hover { border-color: #4af626; color: #4af626; }
+.sg-lb-nav.prev { left: clamp(0.5rem, 3vw, 2rem); }
+.sg-lb-nav.next { right: clamp(0.5rem, 3vw, 2rem); }

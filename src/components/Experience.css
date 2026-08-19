@@ -1,0 +1,132 @@
+.exp-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+}
+
+.exp-item {
+  display: grid;
+  grid-template-columns: 170px 1fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+@media (max-width: 760px) {
+  .exp-item {
+    grid-template-columns: 1fr;
+    gap: 0.6rem;
+  }
+}
+
+.exp-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding-top: 1.4rem;
+}
+@media (max-width: 760px) {
+  .exp-meta {
+    flex-direction: row;
+    align-items: baseline;
+    gap: 1ch;
+    padding-top: 0;
+  }
+}
+.exp-idx {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--run-dim);
+  line-height: 1;
+}
+.exp-period {
+  font-size: var(--step--1);
+  color: var(--fg-dim);
+}
+
+.exp-card {
+  padding: 1.5rem 1.6rem;
+}
+.exp-card:hover {
+  border-color: var(--run-dim);
+}
+
+.exp-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.1rem;
+}
+.exp-role {
+  font-size: var(--step-1);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+.exp-at {
+  color: var(--amber);
+  font-size: 0.9em;
+  font-weight: 400;
+}
+.exp-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+.tag {
+  font-size: 0.72rem;
+  color: var(--fg-dim);
+  padding: 0.2rem 0.55rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--ink-3);
+}
+
+.exp-points {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+.exp-points li {
+  display: flex;
+  gap: 0.8ch;
+  color: var(--fg-dim);
+  font-size: var(--step-0);
+  line-height: 1.55;
+}
+.bullet {
+  color: var(--run-dim);
+  flex-shrink: 0;
+}
+
+/* point count badge (only shown when a role has >6 points) */
+.exp-count {
+  font-size: 0.68rem;
+  color: var(--run-dim);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.1rem 0.5rem;
+  align-self: flex-start;
+  white-space: nowrap;
+}
+@media (max-width: 760px) {
+  .exp-count { align-self: auto; }
+}
+
+/* show more / less toggle */
+.exp-toggle {
+  margin-top: 0.9rem;
+  font-family: var(--mono);
+  font-size: var(--step--1);
+  color: var(--run);
+  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: 0.4rem 0.85rem;
+  cursor: pointer;
+  transition: border-color 0.18s var(--ease), background 0.18s var(--ease);
+}
+.exp-toggle:hover {
+  border-color: var(--run-dim);
+  background: rgba(74, 246, 38, 0.06);
+}

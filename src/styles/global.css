@@ -1,0 +1,190 @@
+@import "./tokens.css";
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--ink);
+  color: var(--fg);
+  font-family: var(--sans);
+  font-size: var(--step-0);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+/* faint editor-grid backdrop — sits behind everything, very low contrast */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background-image: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0.015) 1px,
+      transparent 1px
+    ),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+  background-size: 44px 44px;
+  mask-image: radial-gradient(ellipse 90% 60% at 50% 0%, #000 40%, transparent 100%);
+}
+
+::selection {
+  background: rgba(74, 246, 38, 0.24);
+  color: #fff;
+}
+
+a {
+  color: var(--amber);
+  text-decoration: none;
+  transition: color 0.18s var(--ease);
+}
+a:hover {
+  color: var(--run);
+}
+
+:focus-visible {
+  outline: 2px solid var(--run);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+
+/* ---------- layout ---------- */
+.wrap {
+  width: 100%;
+  max-width: var(--max);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+section {
+  padding-block: clamp(4rem, 9vw, 8rem);
+  position: relative;
+}
+
+/* ---------- shared type ---------- */
+.mono {
+  font-family: var(--mono);
+}
+
+.eyebrow {
+  font-family: var(--mono);
+  font-size: var(--step--1);
+  letter-spacing: 0.12em;
+  text-transform: lowercase;
+  color: var(--fg-dim);
+  display: flex;
+  align-items: center;
+  gap: 0.6ch;
+}
+.eyebrow::before {
+  content: "//";
+  color: var(--run-dim);
+}
+
+.section-title {
+  font-family: var(--mono);
+  font-weight: 800;
+  font-size: var(--step-2);
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  margin-block: 0.6rem 2.5rem;
+}
+.section-title .kw {
+  color: var(--violet);
+}
+
+/* ---------- buttons ---------- */
+.btn {
+  font-family: var(--mono);
+  font-weight: 500;
+  font-size: var(--step--1);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6ch;
+  padding: 0.7rem 1.15rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--line);
+  background: var(--ink-2);
+  color: var(--fg);
+  cursor: pointer;
+  transition: border-color 0.18s var(--ease), transform 0.18s var(--ease),
+    background 0.18s var(--ease);
+}
+.btn:hover {
+  border-color: var(--run-dim);
+  transform: translateY(-1px);
+}
+.btn-run {
+  background: rgba(74, 246, 38, 0.1);
+  border-color: rgba(74, 246, 38, 0.35);
+  color: var(--run);
+}
+.btn-run:hover {
+  background: rgba(74, 246, 38, 0.18);
+  border-color: var(--run);
+}
+
+/* ---------- cards ---------- */
+.card {
+  background: var(--ink-2);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  transition: border-color 0.2s var(--ease), transform 0.2s var(--ease);
+}
+
+/* ---------- the live cursor block (signature detail) ---------- */
+.cursor {
+  display: inline-block;
+  width: 0.62ch;
+  height: 1.05em;
+  margin-left: 0.15ch;
+  background: var(--run);
+  translate: 0 0.14em;
+  animation: blink 1.15s steps(1) infinite;
+}
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+/* status dot used near "live" things */
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--run);
+  box-shadow: 0 0 0 0 rgba(74, 246, 38, 0.5);
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(74, 246, 38, 0.45);
+  }
+  70% {
+    box-shadow: 0 0 0 7px rgba(74, 246, 38, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(74, 246, 38, 0);
+  }
+}
+
+/* reveal-on-scroll */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.6s var(--ease), transform 0.6s var(--ease);
+}
+.reveal.in {
+  opacity: 1;
+  transform: none;
+}

@@ -1,0 +1,189 @@
+.cs-lead {
+  max-width: 60ch;
+  color: var(--fg-dim);
+  font-size: var(--step-0);
+  margin-bottom: 2rem;
+  margin-top: -1.5rem;
+}
+
+/* tabs */
+.cs-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.6rem;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 0;
+}
+.cs-tab {
+  background: transparent;
+  border: 1px solid transparent;
+  border-bottom: none;
+  color: var(--fg-dim);
+  padding: 0.6rem 1rem;
+  font-size: var(--step--1);
+  cursor: pointer;
+  border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+  transition: color 0.15s var(--ease), background 0.15s var(--ease);
+  position: relative;
+  top: 1px;
+}
+.cs-tab:hover {
+  color: var(--fg);
+}
+.cs-tab.on {
+  color: var(--run);
+  background: var(--ink-2);
+  border-color: var(--line);
+  border-bottom: 1px solid var(--ink-2);
+}
+
+/* body: logic + demo */
+.cs-body {
+  display: grid;
+  /* grid-template-columns: 0.85fr 1.15fr; */
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  gap: 1.6rem;
+  align-items: start;
+}
+@media (max-width: 900px) {
+  .cs-body {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* logic panel */
+.cs-logic {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+.cs-logic-head {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+.cs-title {
+  font-size: var(--step-1);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+.cs-context {
+  font-size: var(--step--1);
+  color: var(--fg-dim);
+}
+.cs-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+.cs-block {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.cs-k {
+  font-size: var(--step--1);
+  color: var(--run-white);
+}
+.cs-block p {
+  color: var(--fg-dim);
+  font-size: var(--step-0);
+}
+.cs-steps {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+.cs-steps li {
+  display: flex;
+  gap: 0.8ch;
+  color: var(--fg-dim);
+  font-size: var(--step-0);
+  line-height: 1.5;
+}
+.cs-step-n {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  background: var(--ink-3);
+  border: 1px solid var(--line);
+  color: var(--run);
+  font-size: 0.7rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0.1rem;
+}
+
+.cs-metrics {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  padding-top: 0.4rem;
+  border-top: 1px solid var(--line);
+}
+.cs-metric {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+.cs-metric b {
+  color: var(--run-white);
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+.cs-metric span {
+  color: var(--fg-dim);
+  font-size: 0.68rem;
+  text-transform: lowercase;
+}
+
+/* demo column */
+.cs-demo-col {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  min-width: 0; 
+}
+.cs-demo {
+  overflow: hidden;
+}
+.cs-demo-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.6ch;
+  padding: 0.6rem 0.9rem;
+  font-size: var(--step--1);
+  color: var(--fg-dim);
+  background: var(--ink-3);
+  border-bottom: 1px solid var(--line);
+}
+.cs-demo-inner {
+  padding: 1.1rem;
+}
+.cs-demo-note {
+  font-size: 0.74rem;
+  color: var(--fg-dim);
+  line-height: 1.5;
+}
+
+/* screenshot slot */
+.cs-shot {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--ink);
+}
+.cs-shot img {
+  width: 100%;
+  display: block;
+  border-bottom: 1px solid var(--line);
+}
+.cs-shot figcaption {
+  padding: 0.5rem 0.85rem;
+  font-size: 0.7rem;
+  color: var(--fg-dim);
+}

@@ -1,0 +1,45 @@
+.skills-obj {
+  padding: 1.8rem 2rem;
+  font-size: var(--step-0);
+  line-height: 1.9;
+}
+.sk-brace {
+  color: var(--fg-dim);
+}
+.sk-group {
+  padding-left: 1.6rem;
+  margin: 0.2rem 0;
+}
+.sk-key {
+  color: var(--amber);
+}
+.sk-colon {
+  color: var(--fg-dim);
+}
+.sk-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem 0.9rem;
+  padding-left: 1.6rem;
+  margin: 0.15rem 0;
+}
+.sk-item {
+  color: var(--fg-dim);
+  font-size: 0.85rem;
+  transition: color 0.15s var(--ease);
+  cursor: default;
+}
+.sk-item:hover {
+  color: var(--fg);
+}
+.sk-val {
+  color: var(--run);
+}
+.sk-item:hover .sk-val {
+  color: #6dff4f;
+}
+.sk-bracket {
+  color: var(--fg-dim);
+  padding-left: 1.6rem;
+  display: inline-block;
+}

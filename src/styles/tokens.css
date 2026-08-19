@@ -1,0 +1,67 @@
+/*
+  DESIGN TOKENS — "Editor" identity
+  ---------------------------------
+  Concept: the whole site reads like a code editor at rest. The one bold
+  move is that GREEN means "live / running" and nothing else — it only
+  appears on active states (the playground run indicator, the cursor,
+  hovered links resolving). Everything structural stays quiet slate.
+
+  Palette (named):
+    --ink        #0B0E14   deep slate-blue base (not pure black)
+    --ink-2      #10141D   raised surfaces / cards
+    --ink-3      #171C28   editor gutter / inputs
+    --line       #232A3B   hairline borders
+    --fg         #E4E7EF   primary text
+    --fg-dim     #8B93A7   secondary text / comments
+    --run        #4AF626   terminal green — LIVE STATES ONLY
+    --amber      #FFB454   secondary accent — links, highlights
+    --violet     #A78BFA   tertiary — used sparingly for tags/keywords
+*/
+
+:root {
+  --ink: #0b0e14;
+  --ink-2: #10141d;
+  --ink-3: #171c28;
+  --line: #232a3b;
+
+  --fg: #e4e7ef;
+  --fg-dim: #8b93a7;
+
+  --run: #4af626;
+  --run-white:#ffffff;
+  --run-dim: #2fa617;
+  --amber: #ffb454;
+  --violet: #a78bfa;
+  --rose: #f472b6;
+
+  /* type */
+  --mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --sans: "Inter", system-ui, -apple-system, sans-serif;
+
+  /* type scale (fluid) */
+  --step--1: clamp(0.78rem, 0.74rem + 0.2vw, 0.85rem);
+  --step-0: clamp(0.95rem, 0.9rem + 0.25vw, 1.05rem);
+  --step-1: clamp(1.2rem, 1.05rem + 0.6vw, 1.6rem);
+  --step-2: clamp(1.6rem, 1.3rem + 1.4vw, 2.6rem);
+  --step-3: clamp(2.4rem, 1.8rem + 3vw, 4.4rem);
+  --step-4: clamp(3.2rem, 2.2rem + 5vw, 6.5rem);
+
+  /* spacing / rhythm */
+  --gutter: clamp(1.25rem, 4vw, 4rem);
+  --max: 1280px;
+  --radius: 10px;
+  --radius-sm: 6px;
+
+  /* motion */
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
