@@ -1,6 +1,6 @@
 // Thin API wrapper. In dev, Vite proxies /api to the Express server.
 // In prod, set VITE_API_BASE to your deployed API origin.
-const BASE = import.meta.env.VITE_API_BASE || "";
+const BASE = import.meta.env.VITE_API_BASE || "http://localhost:4000";
 
 async function request(path, options = {}) {
   const res = await fetch(`${BASE}${path}`, {
