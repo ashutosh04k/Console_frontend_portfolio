@@ -254,7 +254,7 @@ export default function ChatDemo() {
   const [search, setSearch] = useState("");
   const [draft, setDraft] = useState("");
   const [showQuick, setShowQuick] = useState(true);
-
+  const [showDetails, setShowDetails] = useState(false);
   const list = chats[tab];
   const active = list.find((c) => c.id === activeId) || list[0];
   const context = tab === "driver" ? CONTEXT.ADMIN_DRIVER : CONTEXT.ADMIN_USER;
@@ -364,6 +364,13 @@ export default function ChatDemo() {
               <div className="cd-conv-name">{active?.name} <span className="cd-conv-role">· {active?.role}</span></div>
               <div className="cd-conv-sub mono">{active?.id} · {active?.phone} · <span className="cd-status">{active?.status}</span></div>
             </div>
+            <button
+              className={`cd-simbtn mono ${showDetails ? "on" : ""}`}
+              onClick={() => setShowDetails((v) => !v)}
+              title="Toggle the details panel"
+            >
+              {showDetails ? "✕ close details" : "ⓘ view details"}
+            </button>
             <button className="cd-simbtn mono" onClick={simulateIncoming} title="Simulate an incoming reply (stands in for 2s polling)">
               ⚡ simulate reply
             </button>

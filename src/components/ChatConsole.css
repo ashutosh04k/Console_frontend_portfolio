@@ -52,11 +52,10 @@
 }
 /* the details panel is hidden by default (the demo column is narrow); it's
    shown as a 3rd column only on very wide viewports where the column is roomy */
+/* details panel: hidden by default, opens on click via .open / .with-details */
 .cd-details { display: none; }
-@media (min-width: 1500px) {
-  .cd-grid { grid-template-columns: 200px minmax(0, 1fr) 190px; }
-  .cd-details { display: flex; }
-}
+.cd-details.open { display: flex; }
+.cd-grid.with-details { grid-template-columns: 200px minmax(0, 1fr) 190px; }
 @media (max-width: 680px) {
   .cd-grid { grid-template-columns: 1fr; height: auto; }
   .cd-list { max-height: 200px; }
@@ -131,14 +130,20 @@
 .cd-conv { display: flex; flex-direction: column; min-height: 0; min-width: 0; }
 .cd-conv-head {
   display: flex; align-items: center; gap: 0.6rem;
-  padding: 0.65rem 0.9rem;
+  padding: 0.5rem 0.9rem;
   border-bottom: 1px solid #232a3b;
   background: #171c28;
 }
-.cd-conv-meta { flex: 1; min-width: 0; }
-.cd-conv-name { font-size: 13.5px; color: #e4e7ef; }
+.cd-conv-meta { flex: 1; min-width: 0; overflow: hidden; }
+.cd-conv-name {
+  font-size: 13.5px; color: #e4e7ef;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
 .cd-conv-role { color: #8b93a7; font-weight: 400; }
-.cd-conv-sub { font-size: 10.5px; color: #8b93a7; }
+.cd-conv-sub {
+  font-size: 10.5px; color: #8b93a7;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
 .cd-status { color: #ffb454; }
 .cd-simbtn {
   font-size: 11px; padding: 0.35rem 0.7rem;
