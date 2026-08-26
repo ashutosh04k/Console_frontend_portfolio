@@ -24,7 +24,7 @@ export default function About() {
       <div className="wrap ab-top">
         <p className="eyebrow">about</p>
         <h1 className="ab-headline">
-          I'm Ashutosh — a frontend engineer drawn to the features most
+          I'm Ashutosh — a Software engineer drawn to the features most
           people call <span className="ab-hl">too complex for the browser</span>.
         </h1>
       </div>

@@ -60,7 +60,7 @@ export const PROJECTS = [
     name: "100Acress",
     metric: "Real estate portal",
     blurb:
-      "Frontend for a large-scale real estate platform serving buyers, sellers, and agents. Converted Figma designs into responsive, cross-browser interfaces with property search, dynamic filters, and location-based discovery. Deployed via AWS EC2, Docker, Nginx, and CI/CD with GitHub Actions.",
+      "Software for a large-scale real estate platform serving buyers, sellers, and agents. Converted Figma designs into responsive, cross-browser interfaces with property search, dynamic filters, and location-based discovery. Deployed via AWS EC2, Docker, Nginx, and CI/CD with GitHub Actions.",
     stack: ["React", "JavaScript", "Redux", "Tailwind CSS", "REST APIs", "AWS EC2", "Docker", "GitHub Actions"],
     live: "https://www.100acress.com/",
     github: "",

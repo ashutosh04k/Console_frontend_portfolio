@@ -57,7 +57,7 @@ export default function Hero() {
           </p>
 
           <p className="hero-blurb">
-            Frontend developer who ships the hard parts — live maps over
+            Software developer who ships the hard parts — live maps over
             WebSockets, real-time chat, payment flows, and import tools that
             chew through 100k rows. Comfortable across the stack, most at home
             making interfaces that feel instant.
